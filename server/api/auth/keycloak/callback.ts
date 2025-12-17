@@ -43,16 +43,21 @@ export default defineEventHandler(async (event) => {
 			endpoint: tokenEndpoint,
 			clientId,
 			redirectUri,
-			realm
+			realm,
+			hasClientSecret: !!clientSecret
 		})
 
 		const formData = new URLSearchParams({
 			grant_type: 'authorization_code',
 			client_id: clientId,
-			client_secret: clientSecret,
 			code: code.toString(),
 			redirect_uri: redirectUri,
 		})
+
+		// Only add client_secret if configured (for confidential clients)
+		if (clientSecret) {
+			formData.append('client_secret', clientSecret)
+		}
 
 		const tokenResponse = await $fetch<TokenResponse>(tokenEndpoint, {
 			method: 'POST',

@@ -9,8 +9,9 @@ export default defineNuxtConfig({
       apiUrl: 'https://sso.transtrack.id/',
       keycloakDisabled: 'false',
       keycloakUrl: 'https://sso.transtrack.id/',
-      keycloakRealm: 'master',
-      keycloakClientId: 'fe-testing',
+      keycloakRealm: 'external',
+      // keycloakClientId: 'order-planning-fe',
+      keycloakClientId: 'account-transtrack-staging',
     },
     // Private runtime config
     keycloakClientSecret: process.env.KEYCLOAK_CLIENT_SECRET || '',

@@ -1,0 +1,586 @@
+/* Maritime Solutions Login Theme */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Background */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, 
+    #87CEEB 0%, 
+    #5DA5D1 20%,
+    #3B8DC4 40%,
+    #1E6FAF 60%,
+    #0A4C8A 80%,
+    #002244 100%
+  ) !important;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Hide default Keycloak header */
+#kc-header {
+  display: none !important;
+}
+
+#kc-header-wrapper {
+  display: none !important;
+}
+
+/* Container */
+#kc-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Main login container */
+#kc-content {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#kc-content-wrapper {
+  margin: 0 auto;
+}
+
+/* Login card */
+.login-pf-page .card-pf,
+.card-pf {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+
+#kc-container-wrapper {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Card Header with logo */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-wrapper .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-wrapper .logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-wrapper .logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.logo-wrapper .logo-highlight {
+  color: #333;
+}
+
+.logo-wrapper .copyright {
+  font-size: 11px;
+  color: #999;
+}
+
+/* Card Body - Two Column Layout */
+.card-body {
+  display: flex;
+  padding: 40px 32px;
+  gap: 40px;
+}
+
+.form-section {
+  flex: 1;
+  max-width: 380px;
+}
+
+.illustration-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ship-illustration {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+/* Version text */
+.version-text {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Form header */
+#kc-form-header {
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+#kc-page-title,
+.login-pf-page-header h1 {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 8px !important;
+  text-align: left !important;
+}
+
+/* Subtitle text */
+#kc-form-header p,
+.instruction {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Form body */
+#kc-form {
+  padding: 0 32px 32px;
+}
+
+#kc-form-buttons {
+  margin-top: 24px;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Labels */
+label,
+.control-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Required indicator */
+.required::after {
+  content: ' *';
+  color: #E53935;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+.form-control:focus {
+  outline: none;
+  border-color: #E53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+input::placeholder,
+.form-control::placeholder {
+  color: #999;
+}
+
+/* Forgot password link */
+#kc-form-options {
+  margin-bottom: 24px;
+}
+
+#kc-form-options a,
+.login-pf-forgot a {
+  font-size: 14px;
+  color: #E53935;
+  text-decoration: none;
+}
+
+#kc-form-options a:hover,
+.login-pf-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* Primary button (Login) */
+#kc-login,
+input[type="submit"],
+.btn-primary {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #F87171 0%, #EF4444 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: none;
+}
+
+#kc-login:hover,
+input[type="submit"]:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  background: linear-gradient(135deg, #F87171 0%, #EF4444 100%) !important;
+}
+
+#kc-login:focus,
+input[type="submit"]:focus,
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* Secondary/Cancel buttons */
+.btn-default,
+#kc-cancel {
+  width: 100%;
+  padding: 14px 24px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.btn-default:hover,
+#kc-cancel:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+/* Social login buttons */
+#kc-social-providers {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+#kc-social-providers::before {
+  content: 'or';
+  display: block;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 16px;
+  margin-top: -36px;
+  background: white;
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#kc-social-providers ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#kc-social-providers li {
+  margin-bottom: 12px;
+}
+
+#kc-social-providers a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+#kc-social-providers a:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+/* Error messages */
+.alert,
+.alert-error,
+#kc-error-message,
+.kc-feedback-text {
+  background: #FEE2E2;
+  color: #DC2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+/* Success messages */
+.alert-success {
+  background: #D1FAE5;
+  color: #065F46;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+/* Info messages */
+.alert-info {
+  background: #DBEAFE;
+  color: #1E40AF;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+/* Warning messages */
+.alert-warning {
+  background: #FEF3C7;
+  color: #92400E;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+/* Remember me checkbox */
+#kc-form-options .checkbox,
+.login-pf-settings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#kc-form-options .checkbox input,
+.login-pf-settings input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #E53935;
+}
+
+#kc-form-options .checkbox label,
+.login-pf-settings label {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Registration link */
+#kc-registration {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+#kc-registration span {
+  font-size: 14px;
+  color: #666;
+}
+
+#kc-registration a {
+  color: #E53935;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#kc-registration a:hover {
+  text-decoration: underline;
+}
+
+/* Footer / Info section */
+#kc-info,
+.login-pf-page .login-pf-signup {
+  text-align: center;
+  margin-top: 16px;
+}
+
+#kc-info-wrapper {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+}
+
+/* Hide powered by text */
+.login-pf-page .login-pf-header::after {
+  display: none;
+}
+
+/* Two-factor authentication */
+#kc-totp-settings,
+.kc-totp {
+  padding: 0 32px 32px;
+}
+
+/* Password visibility toggle (if supported) */
+.pf-c-form__group-control {
+  position: relative;
+}
+
+.pf-c-button.pf-m-control {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+}
+
+/* Locale selector */
+#kc-locale {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#kc-locale-dropdown {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+/* Terms and conditions */
+#kc-terms-text {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Update profile form */
+#kc-update-profile-form {
+  padding: 0 32px 32px;
+}
+
+/* Password update form */
+#kc-passwd-update-form {
+  padding: 0 32px 32px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-body {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .form-section {
+    max-width: 100%;
+  }
+
+  .illustration-section {
+    display: none;
+  }
+
+  #kc-page-title,
+  .login-pf-page-header h1 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-pf-page .card-pf,
+  .card-pf {
+    margin: 10px;
+    border-radius: 12px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}
+
+/* Override any PatternFly styles */
+.pf-c-login__main {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.pf-c-login {
+  background: transparent !important;
+}
+
+.pf-c-login__container {
+  padding: 0 !important;
+}

@@ -1,13 +1,26 @@
-export default defineNuxtRouteMiddleware((to, from) => {
-    // if (import.meta.server) {
-    //   return;
-    // }
-    // const isAuthRequired = to.meta.auth || false;
+export default defineNuxtRouteMiddleware(async (to, from) => {
+  // Skip middleware on server side
+  if (import.meta.server) {
+    return
+  }
+
+  // Public routes that don't require authentication
+  const publicRoutes = ['/login', '/sso-login']
   
-    // const oidc = useOidc()
-  
-    // if (isAuthRequired && !oidc.isLoggedIn) {
-    //   oidc.login(to.fullPath);
-    // }
-  });
+  if (publicRoutes.includes(to.path)) {
+    return
+  }
+
+  // Check authentication status
+  try {
+    const response = await $fetch('/api/auth/user')
+    if (!response.user) {
+      // Redirect to SSO login for automatic cross-client authentication
+      return navigateTo('/sso-login')
+    }
+  } catch (error) {
+    // Redirect to SSO login for automatic cross-client authentication
+    return navigateTo('/sso-login')
+  }
+})
   

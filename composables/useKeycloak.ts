@@ -1,5 +1,28 @@
+interface LoginCredentials {
+	email: string
+	password: string
+}
+
+interface LoginResponse {
+	success: boolean
+	user: any
+}
+
 export function useKeycloak() {
-	const login = async () => {
+	const loginWithCredentials = async (credentials: LoginCredentials): Promise<LoginResponse> => {
+		try {
+			const response = await $fetch<LoginResponse>('/api/auth/login', {
+				method: 'POST',
+				body: credentials
+			})
+			return response
+		} catch (error: any) {
+			console.error('Failed to login:', error)
+			throw error
+		}
+	}
+
+	const loginWithRedirect = async () => {
 		try {
 			const response = await $fetch('/api/login')
 			if (response.url) {
@@ -24,7 +47,8 @@ export function useKeycloak() {
 	}
 
 	return {
-		login,
+		loginWithCredentials,
+		loginWithRedirect,
 		logout
 	}
 }

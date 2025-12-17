@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" fill="none">
+  <!-- Circle with dot logo -->
+  <circle cx="16" cy="16" r="14" stroke="#E53935" stroke-width="2" fill="none"/>
+  <circle cx="16" cy="16" r="5" fill="#E53935"/>
+  
+  <!-- TransTRACK text -->
+  <text x="40" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#333">
+    Trans<tspan font-weight="700">TRACK</tspan>
+  </text>
+</svg>

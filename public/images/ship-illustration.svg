@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="200" cy="175" r="140"/>
+    </clipPath>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB"/>
+      <stop offset="100%" style="stop-color:#E0F4FF"/>
+    </linearGradient>
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E90FF"/>
+      <stop offset="50%" style="stop-color:#0066CC"/>
+      <stop offset="100%" style="stop-color:#003366"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="175" r="140" fill="url(#skyGradient)"/>
+  
+  <g clip-path="url(#circleClip)">
+    <!-- Clouds -->
+    <g fill="white">
+      <ellipse cx="100" cy="80" rx="30" ry="15"/>
+      <ellipse cx="120" cy="75" rx="25" ry="12"/>
+      <ellipse cx="280" cy="90" rx="35" ry="18"/>
+      <ellipse cx="260" cy="85" rx="25" ry="12"/>
+      <ellipse cx="300" cy="88" rx="20" ry="10"/>
+    </g>
+    
+    <!-- Ocean -->
+    <rect x="60" y="200" width="280" height="120" fill="url(#oceanGradient)"/>
+    
+    <!-- Waves -->
+    <g fill="#4DA6FF" opacity="0.6">
+      <path d="M60 210 Q90 200, 120 210 T180 210 T240 210 T300 210 T340 210 V220 H60 Z"/>
+      <path d="M60 230 Q90 220, 120 230 T180 230 T240 230 T300 230 T340 230 V240 H60 Z"/>
+    </g>
+    
+    <!-- Container Ship Hull -->
+    <path d="M100 230 L130 280 L300 280 L320 230 Z" fill="#2C3E50"/>
+    <path d="M105 230 L100 230 L130 280 L140 280 Z" fill="#34495E"/>
+    
+    <!-- Ship deck -->
+    <rect x="120" y="200" width="180" height="35" fill="#455A64"/>
+    
+    <!-- Containers Row 1 -->
+    <rect x="130" y="175" width="25" height="25" fill="#E74C3C"/>
+    <rect x="160" y="175" width="25" height="25" fill="#3498DB"/>
+    <rect x="190" y="175" width="25" height="25" fill="#2ECC71"/>
+    <rect x="220" y="175" width="25" height="25" fill="#F39C12"/>
+    <rect x="250" y="175" width="25" height="25" fill="#9B59B6"/>
+    
+    <!-- Containers Row 2 -->
+    <rect x="145" y="148" width="25" height="25" fill="#F39C12"/>
+    <rect x="175" y="148" width="25" height="25" fill="#E74C3C"/>
+    <rect x="205" y="148" width="25" height="25" fill="#3498DB"/>
+    <rect x="235" y="148" width="25" height="25" fill="#2ECC71"/>
+    
+    <!-- Containers Row 3 -->
+    <rect x="160" y="121" width="25" height="25" fill="#9B59B6"/>
+    <rect x="190" y="121" width="25" height="25" fill="#F39C12"/>
+    <rect x="220" y="121" width="25" height="25" fill="#E74C3C"/>
+    
+    <!-- Bridge/Cabin -->
+    <rect x="270" y="140" width="35" height="60" fill="#ECF0F1"/>
+    <rect x="275" y="145" width="10" height="10" fill="#3498DB"/>
+    <rect x="290" y="145" width="10" height="10" fill="#3498DB"/>
+    <rect x="275" y="160" width="10" height="10" fill="#3498DB"/>
+    <rect x="290" y="160" width="10" height="10" fill="#3498DB"/>
+    
+    <!-- Mast/Antenna -->
+    <rect x="283" y="115" width="4" height="25" fill="#7F8C8D"/>
+    <rect x="280" y="115" width="10" height="3" fill="#E74C3C"/>
+    
+    <!-- Crane -->
+    <rect x="140" y="90" width="5" height="85" fill="#F39C12"/>
+    <rect x="135" y="90" width="15" height="5" fill="#F39C12"/>
+    <path d="M145 90 L175 90 L145 110 Z" fill="#F39C12"/>
+    
+    <!-- Small boat -->
+    <path d="M80 255 L90 270 L130 270 L140 255 Z" fill="#8B4513"/>
+    <rect x="100" y="245" width="3" height="15" fill="#5D4037"/>
+    <polygon points="103,245 103,255 120,250" fill="white"/>
+  </g>
+  
+  <!-- Circle border -->
+  <circle cx="200" cy="175" r="140" fill="none" stroke="#E0F4FF" stroke-width="4"/>
+</svg>

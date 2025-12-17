@@ -2,14 +2,20 @@
 import { useKeycloak } from '~/composables/useKeycloak';
 import { useAuth } from '~/composables/useAuth';
 
-const { login, logout } = useKeycloak();
-const { user, isAuthenticated } = useAuth();
+const { logout } = useKeycloak();
+const { user, isAuthenticated, loading } = useAuth();
+
+const goToLogin = () => {
+  navigateTo('/sso-login')
+}
 </script>
 
 <template>
   <div class="container mx-auto p-4">
-    <div v-if="isAuthenticated" class="space-y-4">
-
+    <div v-if="loading" class="text-center py-8">
+      <p>Loading...</p>
+    </div>
+    <div v-else-if="isAuthenticated" class="space-y-4">
       <div class="bg-white p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-bold mb-4">Welcome, {{ user?.name || user?.preferred_username }}</h2>
         <div class="space-y-2">
@@ -24,13 +30,13 @@ const { user, isAuthenticated } = useAuth();
         </button>
       </div>
     </div>
-    <div v-else class="text-center">
+    <div v-else class="text-center py-8">
       <h2 class="text-2xl font-bold mb-4">Please login to continue</h2>
       <button 
-        @click="login"
+        @click="goToLogin"
         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
       >
-        Login with Keycloak
+        Login
       </button>
     </div>
   </div>
