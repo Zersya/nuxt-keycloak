@@ -8,6 +8,7 @@ interface LoginRequest {
 interface TokenResponse {
   access_token: string
   refresh_token: string
+  id_token: string
   expires_in: number
   refresh_expires_in: number
   token_type: string
@@ -96,7 +97,8 @@ export default defineEventHandler(async (event) => {
 
     setCookie(event, 'auth_tokens', JSON.stringify({
       accessToken: tokenResponse.access_token,
-      refreshToken: tokenResponse.refresh_token
+      refreshToken: tokenResponse.refresh_token,
+      idToken: tokenResponse.id_token
     }), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',

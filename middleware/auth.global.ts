@@ -11,15 +11,15 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     return
   }
 
-  // Check authentication status
+  // Validate session with Keycloak (not just local cookies)
+  // This ensures logout from other domains is detected
   try {
-    const response = await $fetch('/api/auth/user')
-    if (!response.user) {
-      // Redirect to SSO login for automatic cross-client authentication
+    const response = await $fetch('/api/auth/validate')
+    if (!response.valid) {
       return navigateTo('/sso-login')
     }
   } catch (error) {
-    // Redirect to SSO login for automatic cross-client authentication
+    // Session invalid or expired - redirect to SSO login
     return navigateTo('/sso-login')
   }
 })

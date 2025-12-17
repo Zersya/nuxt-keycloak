@@ -3,6 +3,7 @@ import { defineEventHandler, getQuery, createError, setCookie, sendRedirect } fr
 interface TokenResponse {
 	access_token: string;
 	refresh_token: string;
+	id_token: string;
 }
 
 export default defineEventHandler(async (event) => {
@@ -94,7 +95,8 @@ export default defineEventHandler(async (event) => {
 
 		setCookie(event, 'auth_tokens', JSON.stringify({
 			accessToken: tokenResponse.access_token,
-			refreshToken: tokenResponse.refresh_token
+			refreshToken: tokenResponse.refresh_token,
+			idToken: tokenResponse.id_token
 		}), {
 			httpOnly: true,
 			secure: true,
