@@ -1,5 +1,5 @@
 import { defineEventHandler } from 'h3'
-import { requireAuth, getAccessToken } from '~/server/utils/auth'
+import { requireValidSession, getAccessToken } from '~/server/utils/auth'
 
 /**
  * GET /api/protected/data
@@ -8,8 +8,8 @@ import { requireAuth, getAccessToken } from '~/server/utils/auth'
  * The access token can be used to call other services that trust the same Keycloak
  */
 export default defineEventHandler(async (event) => {
-  // Require authentication
-  const session = requireAuth(event)
+  // Validate session with Keycloak (ensures cross-domain logout is respected)
+  const user = await requireValidSession(event)
   
   // Get access token to call other services
   const accessToken = getAccessToken(event)
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
   return {
     success: true,
     message: 'This is protected data',
-    user: session.user.preferred_username || session.user.email,
+    user: user.preferred_username || user.email,
     // Include access token info (for demo purposes - don't expose in production)
     tokenPreview: accessToken ? `${accessToken.substring(0, 20)}...` : null,
     data: [
