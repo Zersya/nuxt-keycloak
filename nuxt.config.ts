@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
   runtimeConfig: {
     public: {
-      baseUrl: 'https://keycloak-lake.vercel.app/',
+      baseUrl: 'https://keycloak-cake.vercel.app/',
       apiUrl: 'https://sso.transtrack.id/',
       keycloakDisabled: 'false',
       keycloakUrl: 'https://sso.transtrack.id/',
